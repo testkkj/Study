@@ -1,0 +1,36 @@
+.container{
+    width: 1140px;
+    margin: 0 auto;
+    font-size: 16px;
+}
+
+table{
+    border-collapse: collapse;
+}
+
+th, td{
+    border: 1px solid black;
+    padding: 15px;
+}
+
+#boxmodel{
+    width: 300px;
+    height: 400px;
+    background-color: lightblue;
+}
+
+#boxmodel div:nth-child(odd){
+    width: 300px;
+    height: 100px;
+    background-color: lightyellow;
+    text-align: center;
+    line-height: 100px;
+}
+
+#boxmodel div:nth-child(even){
+    width: 300px;
+    height: 100px;
+    background-color: lightcoral;
+    text-align: center;
+    line-height: 100px;
+}
