@@ -1,0 +1,22 @@
+멀티미디어 다루기 - 방콕 코딩 캠프
+
+▶유튜브에서 검색 'iphone xs official video'
+1분짜리 오피셜 영상 다운로드
+
+▶크롬브라우저에서 autoplay 안될 경우 해결책
+
+1)크롬 주소표시줄에 chrome://flags/#autoplay-policy 복사 붙여넣기 후 엔터
+2)Autoplay policy에서 No user gusture is required로 선택
+
+====================================
+
+<style>
+        body {
+            margin: 0;
+        }
+        video {
+            position: fixed;
+            min-width: 100%;
+            min-height: 100%;
+        }
+    </style>

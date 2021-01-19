@@ -1,0 +1,42 @@
+하이퍼링크, 앵커 만들기 - 방콕 코딩 캠프
+
+집중 그리고 반복과 응용
+선택과 집중 그리고 취업
+프론트엔드 퍼블리싱 or 개발
+한국에서 집중 할 수 있나요?
+교육환경과 실력 그리고 결과물
+세상에 쉬운 일은 절대 없다
+========================================================
+나눔고딕 웹폰트
+http://fonts.googleapis.com/earlyaccess/nanumgothic.css
+
+배경색상값 : #2cbcb5
+
+하이퍼링크 앵커를 이용한 실제 웹페이지 보기
+http://codingworks.cafe24.com/section-works/40/
+========================================================
+<style>
+        body {
+            font-family: 'nanumgothic';
+            font-size: 14px;
+        }
+        nav {
+            text-align: center;
+            margin: 100px;
+        }
+        nav a {
+            background-color: teal;
+            color: #fff;
+            text-decoration: none;
+            padding: 5px 10px;
+        }
+        figure {
+            margin: 0;
+            text-align: center;
+        }
+        figure hr {
+            height: 2px;
+            border: none;
+            border-top: 1px dashed #ccc;
+        }
+    </style>

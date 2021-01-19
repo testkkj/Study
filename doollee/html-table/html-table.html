@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 만들기 - 방콕 코딩 캠프</title>
+    <style>
+        body {
+            font-size: 14px;
+        }
+
+        table {
+            width: 1000px;
+            border-collapse: collapse;
+        }
+        table td,
+        table th {
+            text-align: center;
+            padding: 5px;
+            border: 1px solid lightgray;
+        }
+
+        table th {
+            background-color: dodgerblue;
+            color: #fff;
+        }
+
+        table caption {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <table border="1">
+        <caption>
+            부가세가 포함된 실제 지불금액입니다.
+        </caption>
+        <tr>
+            <th>상품명</th>
+            <th>월정액</th>
+            <th>제공혜택</th>
+        </tr>
+        <tr>
+            <td>지상파 무제한 즐기기</td>
+            <td>14,300원</td>
+            <td>우리 가족 취향 저격, 국민 월정액! KBS, MBC, SBS 지상파 3사의 드라마, 예능 프로그램을 가장 빠르게 가장 경제적으로 즐길 수 있는 올레tv Best 추천 월정액 서비스</td>
+        </tr>
+        <tr>
+            <td>CJ ENM 무제한 즐기기</td>
+            <td>14,300원</td>
+            <td>세상의 모든 즐거움! tvN, Mnet, OCN, Olive 등 CJ ENM의 모든 드라마, 예능 프로그램을 무제한 볼 수 있는 인기 월정액 서비스</td>
+        </tr>
+        <tr>
+            <td>JTBC 무제한 즐기기</td>
+            <td>7,700원</td>
+            <td>부담 없는 가격으로 JTBC의 드라마, 예능 프로그램을 무제한으로 즐길 수 있는 인기 월정액 서비스</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table border="1" width="400">
+        <tr>
+            <th colspan="4">Tempertature</th>
+        </tr>
+        <tr>
+            <td>Month</td>
+            <td>High</td>
+            <td>Low</td>
+            <td>Average</td>
+        </tr>
+        <tr>
+            <td>January</td>
+            <td>48</td>
+            <td>37</td>
+            <td>43</td>
+        </tr>
+        <tr>
+            <td>February</td>
+            <td>49</td>
+            <td>37</td>
+            <td rowspan="2">43</td>
+        </tr>
+        <tr>
+            <td>March</td>
+            <td>52</td>
+            <td>39</td>
+        </tr>
+        <tr>
+            <td>April</td>
+            <td>58</td>
+            <td>43</td>
+            <td>47</td>
+        </tr>
+    </table>
+    <br>
+    <br>
+    <table>
+        <caption>
+            부가세가 포함된 실제 지불금액입니다.
+        </caption>
+        <tr>
+            <th rowspan="2">인터넷 종류</th>
+            <th rowspan="2">할인상품</th>
+            <th colspan="6">모바일 요금 총액에 따른 할인 금액</th>
+        </tr>
+        <tr>
+            <td>22,000원 미만</td>
+            <td>22,000원 이상</td>
+            <td>64,900원 이상</td>
+            <td>108,900원 이상</td>
+            <td>141,900원 이상</td>
+            <td>174,900원 이상</td>
+        </tr>
+        <tr>
+            <td rowspan="3">10GiGA 인터넷,GiGA 인터넷</td>
+            <td>총 할인금액</td>
+            <td>2,200원 할인</td>
+            <td>5,500원 할인</td>
+            <td>11,000원 할인</td>
+            <td>22,110원 할인</td>
+            <td>27,610원 할인</td>
+            <td>33,110원 할인</td>
+        </tr>
+        <tr>
+            <td>인터넷 할인</td>
+            <td>2,200원 할인</td>
+            <td colspan="5">5,500원 할인</td>
+        </tr>
+        <tr>
+            <td>모바일 할인</td>
+            <td>-</td>
+            <td>-</td>
+            <td>5,500원 할인</td>
+            <td>16,610원 할인</td>
+            <td>22,110원 할인</td>
+            <td>27,610원 할인</td>
+        </tr>
+        <tr>
+            <td rowspan="3">인터넷 최대 100M</td>
+            <td>총 할인금액</td>
+            <td>1,650원 할인</td>
+            <td>3,300원 할인</td>
+            <td>8,800원 할인</td>
+            <td>19,800원 할인</td>
+            <td>24,200원 할인</td>
+            <td>28,600원 할인</td>
+        </tr>
+        <tr>
+            <td>인터넷 할인</td>
+            <td>1,650원 할인</td>
+            <td>3,300원 할인</td>
+            <td colspan="4">5,500원 할인</td>
+        </tr>
+        <tr>
+            <td>모바일 할인</td>
+            <td>-</td>
+            <td>-</td>
+            <td>3,300원 할인</td>
+            <td>14,300원 할인</td>
+            <td>18,700원 할인</td>
+            <td>23,100원 할인</td>
+        </tr>
+    </table>
+</body>
+</html>
+
+		
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
