@@ -1,0 +1,94 @@
+[CSS 기초이론] - 수업 오리엔테이션
+  - 기초적인 단어나 사용하는 툴의 단축키등은 외워두면 작업 효율을 높일 수 있다.
+  - : 콜론, ; 세미콜론, * 아스타리스크 등의 기호명칭을 외워두는 편이 좋다.
+
+[CSS 기초이론] - CSS 학습 요령
+  - 기본적으로 CSS는 속성과 값이 기능을 일정부분 설명한다.
+  - overflow : hidden 같은 경우 넘치다 : 숨기다 이므로
+    넘치는 부분을 숨기다 이렇게 생각해 볼수 있다.
+  - background-attachment : fixed 같은 경우 배경-붙이다/첨부 : 고정 이므로
+    배경에 붙이거나 첨부된것이 고정된다 이렇게 생각해 볼수 있다.
+
+[CSS 기초이론] - CSS 적용 범위, 레이아웃 디자인 설계 순서
+  - CSS는 결국 HTML을 꾸미기 위한 것이기 때문에 HTML에 대한 이해가 선행되어야 한다.
+  - CSS도 기초를 단단하게 쌓아야지만 고급 기능을 잘 사용할수있다.
+
+[CSS 기초이론] - CSS 기본문법, CSS 링크하기
+  - CSS의 기본구조
+  - body {         선택자(Selector)
+      color: navy; 속성(property) : 속성값(value) 속성이 끝나면 반드시 ;로 구분해야한다.
+    }
+  - CSS 링크 방법
+  - 외부 스타일 : .css 파일에 작성하여 링크로 연결
+    내부 스타일 : html 문서 내부에 작성하여 적용한다.
+
+[CSS 기초이론] - CSS 선택자, 선택자 적용 우선순위
+  - 선택자의 종류
+    태그 선택자   : body div p 등
+    아이디 선택자 : #id #test 등 #으로 구분 한두번 사용할 것들에 적용
+    클래스 선택자 : .class .test 등 .으로 구분 재사용할것들에 적용
+    태그와 함께 쓰는 선택자 : p.class 클래스중 어느 하나를 특정할때
+  - 그룹 선택자
+    h1과 p의 CSS가 중복될 경우 h1, p {}로 묶어서 사용할수 있다.
+  - 하위 선택자
+    p span {}은 p태그 아래의 span 태그를 선택한다. 선택자 마지막 공백은 영향이 없다.
+  - 전체 선택자
+    * {} 모든 선택자에 적용한다.
+  - CSS 적용 순서
+    태그(p) -> class -> id -> inline -> !important
+  - CSS3 Browser vender prefix(브라우저 벤더 프리픽스)
+    CSS3에 추가된 기능을 브라우저별로 오류 없이 돌리기 위한 접두어
+    https://github.com/LeaVerou/prefixfree에서 js파일로 html에 링크하면 설정완료
+
+[CSS 기초이론] - CSS 텍스트 관련 스타일
+  - 폰트사이즈 기본
+    16px / 1em / 100% / 12pt 브라우저 디폴트
+  - 텍스트 서식
+    font-size    : 텍스트 크기관련(px em pt % rem)
+    font-weight  : 텍스트 두께관련(100~900 bold(700) bolder ligther nomal(400))
+    line-height  : 줄 간격관련(px em pt % rem)
+    font-family  : 글꼴을 지정하는 속성(font name)
+    font-style   : 텍스트 스타일/기울임체(normal italic oblique)
+    font-variant : 소문자를 작은 크기의 대문자 보이기
+  - 텍스트 서식1
+    color           : 텍스트 색 관련(color : name / #000000 / rgb(0,0,0) / rgba(0,0,0,0.5))
+    text-decoration : 텍스트 줄 표시 제거(none underline overline line-through)
+    text-transform  : 텍스트를 대문자 및 소문자로 변환(none capitalize uppercase lowercase)
+    text-shadow     : 텍스트 그림자 효과(x축, y축, 퍼질거리, 색상)
+    latter-spacing  : 알파벳 간격 조정(px em pt % rem)
+    word-spacing    : 단어 간격 조정(px em pt % rem)
+  - 텍스트 서식2
+    text-align  : 문자 정렬 방법 지정(center left right justify)
+    direction   : 쓰기 방향 지정(ltr rtl)
+    text-indent : 들여쓰기 텍스트(px em pt % rem)
+    text-height : 줄 간격 조정(px em pt % rem)
+
+[CSS 기초이론] - CSS 텍스트 그림자 효과, 구글 웹 폰트 활용하기
+  - 텍스트 그림자 효과
+    text-shadow: offset-x offset-y blur-radius color
+    offset-x    : 그림자의 수평거리 설정
+    offset-y    : 그림자의 수직거리 설정
+    blur-radius : 흐림정도
+    colr        : 색상(없으면 브라우저 기본)
+
+[CSS 기초이론] - CSS 목록 스타일(ol, ul)
+  - ol 순서 목록(decimal decimal-leading-zero lower-roman upper-roman lower-alpha upper-alpha)
+  - ul 비순서 목록(disc circle square none)
+  - 리스트 스타일은 ol과 ul이 다르다.
+  - list-style-image로 그림으로도 지정 가능
+
+[CSS 기초이론] - figure 태그로 만드는 CSS 목록 스타일
+  - 실습만 진행
+
+[CSS 기초이론] - 링크 태그로 외부 CSS 파일 링크하기(파비콘 : favicon / Font Awesome)
+  - 파비콘 favicon favorite + icon
+    링크 : https://www.bootstrapcdn.com/fontawesome/
+  - link rel="icon"을 하면 탭에 나오는 아이콘을 등록가능하다.
+  - 링크에서 cdn을 link로 연결 한후 font awesome 공식 사이트에서 아이콘을 추가하면 사용할수 있다.
+
+[CSS 기초이론] - CSS 배경 색상 및 이미지 제어하기(1)
+  - background-color 속성값 종류
+    green             : 색상이름(기본 정의 색상 사용)
+    #00ff00           : 16진수 색상(미세조정)
+    rgb(0,255,0)      : rgb색상(windows RGB 색상표)
+    rgba(0,255,0,0.5) : rgb색상(투명도설정)
