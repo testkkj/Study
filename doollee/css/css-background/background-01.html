@@ -5,10 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>배경색상 제어하기 - 방콕 코딩캠프</title>
     <style>
+        body {
+            background-image: url(images/background-image.jpg);
+            background-repeat: no-repeat;
+        }
         div {
-            background-color: rgb(30, 144, 255);
+            background-color: #fff;
             width: 800px;
-            color: #fff;
+            padding: 15px;
+            border: 10px dashed green;
+            background-clip: padding-box;
         }
     </style>
 </head>
