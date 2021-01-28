@@ -780,3 +780,28 @@
       9.1. MySQL DB 활용
         로그인 : mysql -u 아이디 -p 비밀번호;
       9.2. 자바 SQL 프로그래밍
+        JDBC 프로그래밍 단계 | 사용 클래스
+        JDBC 드라이버 로드 : system.setproperty(), class.forname()
+        데이터베이스 연결 : java.sql.connection
+        statement 생성 : java.sql.Statement, java.sql.preparedStatement
+        sql 문 전송 : java.sql.statement / executequery() 또는 executeupdate()
+        결과 받기 : java.sql.resultset
+        연결 해제 : java.sql.connection / close()
+        
+        DB연결을 위한 JDBC 자바 드라이버 규격을 설정해야한다.
+        Project build path 설정을 선택하고 Add JARs를 선택하고 mysql-connector-java-5.1.42.jar를 선택한다.
+        Maven 프로젝트에서는 pom.xml에 dependency를 추가하면 된다.
+        
+        Class.for.Name 에 드라이버를 지정한다.
+        MySQL 드라이버는 com.mysql.jdbc.Driver이다.
+        getConnection으로 DB에 접속되며,
+        접속 정보는 JDBC:mysql://[서버 도메인 또는 IP]:포트:DB명의 형태로 구성된다.
+        MySQL의 기본 포트는 3306이며 설정을 통해 포트를 변경할 수 있다.
+        연결이 된 다음에는 Statement또는 PreparedStatement를 통해 실행 시킬 SQL문을 준비하게 된다.
+        Statement를 활용하는 경우에는 Statement 객체 생성 후에 SQL 문장을 변수 처리부와 함께 문자열로 구현한다.
+        
+        INSERT나 UPDATE에서 반복적으로 SQL을 실행는 경우에는 PreparedStatement를 쓰는 것이 성능이 우수하다.
+        Statement를 활용하게 되면 DB에서 매번 새롭게 Parsing 처리를 하기 때문에 성능이 저하된다.
+        PreparedStatement를 활용하는 경우에는 SQL문에는 “?”로 변수 처리를 하고 setString을 활용하여 값을 대입한다.
+        
+        83쪽
