@@ -1036,3 +1036,110 @@
           또 한가지는 Mappers 파일의 위치를 등록한다.
           파일의 위치는 * 등을 쓰지 않고, 정확하게 기술을 해주어야 한다.
           Sqlsession에서는 mappers 파일의 위치를 * 등을 활용하여 설정 할 수 있다.
+
+          <?xml version="1.0" encoding="UTF-8"?>
+          <!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+            "http://mybatis.org/dtd/mybatis-3-config.dtd">
+          <configuration>
+            <typeAliases>
+                <typeAlias alias="customerVO" type="lab.CustomerVO" />
+                [Parameter Object, Result Object에 활용될 Object alias 지정]
+            </typeAliases>
+            <mappers>
+                <mapper resource ="META-INF/sqlmap/mappers/lab-dao-class.xml" />
+            </mappers>
+          </configuration>
+
+          * 예제 Settings 파일 생략할 경우 아래의 값이 기본값으로 들어간다.
+          <settings>
+           <setting name="cacheEnabled" value="true"/>
+           <setting name="lazyLoadingEnabled" value="false"/>
+           <setting name="multipleResultSetsEnabled" value="true"/>
+           <setting name="useColumnLabel" value="true"/>
+           <setting name="useGeneratedKeys" value="false"/>
+           <setting name="autoMappingBehavior" value="PARTIAL"/>
+           <setting name="autoMappingUnknownColumnBehavior" value="NONE"/>
+           <setting name="defaultExecutorType" value="SIMPLE"/>
+           <setting name="defaultStatementTimeout" value="null"/>
+           <setting name="defaultFetchSize" value="null"/>
+           <setting name="safeRowBoundsEnabled" value="false"/>
+           <setting name="mapUnderscoreToCamelCase" value="false"/>
+           <setting name="localCacheScope" value="SESSION"/>
+           <setting name="jdbcTypeForNull" value="OTHER"/>
+           <setting name="lazyLoadTriggerMethods" value="equals,clone,hashCode,toString"/>
+          </settings>
+
+        4. Spring 설정
+          Spring과 MyBatis 연동을 위한 설정으로 sqlSession 객체를 생성, 관리하며, DB연결
+          에 필요한 Datasource, Mapper configuration 파일의 위치를 설정한다.
+          Mapper location을 일괄로 지정할 수도 있다.
+          이경우 Mapper configuration의 mapper 위치와 중복지정 할 수 없다.
+
+          * context-mybatis.xml 예제
+          <?xml version="1.0" encoding="UTF-8"?>
+          <beans xmlns=http://www.springframework.org/schema/beans
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:schemaLocation="http://www.springframework.org/schema/beans
+                 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+          <bean id="sqlSession" class="org.mybatis.spring.SqlSessionFactoryBean">
+            <property name="dataSource" ref="dataSource" /> [DB연결 설정(DBCP]
+            <property name="configLocation" value="classpath:/META-INF/sqlmap/sql-mybatis-config.xml" /> [MyBatis 설정]
+            <property  name="mapperLocations"
+            value="classpath:/META-INF/sqlmap/mappers/lab-*.xml" /> [Mapper 파일 위치]
+          </bean>
+          </beans>
+
+          Annotaion 방식을 위해 component scan을 설정하고 properties를 지정한다.
+
+          * context-datasource.xml 예시
+          <?xml version="1.0" encoding="UTF-8"?>
+          <beans xmlns=http://www.springframework.org/schema/beans
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:context="http://www.springframework.org/schema/context"
+                 xsi:schemaLocation="http://www.springframework.org/schema/beans
+                 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                 http://www.springframework.org/schema/context
+                 http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+            <context:property-placeholder
+              location="classpath:/META-INF/spring/jdbc.properties" />
+            <context:component-scan base-package="lab"/>
+          </beans>
+
+          DBCP 설정과 jdbc properties 설정은 아래와 같다.
+
+          * context- datasource.xml 예시
+          <?xml version="1.0" encoding="UTF-8"?>
+          <beans xmlns=http://www.springframework.org/schema/beans
+                 xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+                 xsi:schemaLocation="http://www.springframework.org/schema/beans
+                 http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+                 http://www.springframework.org/schema/jdbc
+                 http://www.springframework.org/schema/jdbc/spring-jdbc-4.0.xsd">
+            <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
+                  destroy-method="close">
+                <property name="driverClassName" value="${driver}" />
+                <property name="url" value="${dburl}" />
+                <property name="username" value="${user}" />
+                <property name="password" value="${password}" />
+            </bean>
+          </beans>
+        5. DAO 작성
+          EgovAbstractMapper 클래스를 상속받아 DAO 클래스를 작성한다.
+          EgovAbstractMapper 클래스는 SqlSessionDaoSupport의 하위클래스로
+          SqlSession 설정과 메소드 호출의 편리함을 제공한다.
+          EgovAbstractMapper를 쓰지 않으면, insert, update, delete, select 등을 실행
+          할 때 앞에 “ getSqlSession().insert()”의 형태로 써주어야 되기 때문에 불편하다.               
+          
+          * DAO(CustomerDAO.java) 예시
+          @Repository("customerDAO")                                  
+          public class CustomerDAO extends EgovAbstractMapper {       
+              public void insertCustomer(CustomerVO vo) {                 
+                  insert("customer.insertCustomer", vo);[맵퍼 아이디와 파라미터 오브젝트 명시하여 insert 실행]
+              }                                                          
+              public List<CustomerVO> selectCustomerList(CustomerVO vo) {
+                  return selectList("customer.selectCustomerList", vo);[맵퍼 아이디와 파라미터 오브젝트 명시하여 select 실행]
+              }                                                          
+          }                                                           
+                                                            
