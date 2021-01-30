@@ -80,7 +80,7 @@
         디렉토리 구조
         firstExample
           >src/main/java  : 자바 소스파일
-          >src/main/resource  : 배포할 리소스, sml, properties
+          >src/main/resource  : 배포할 리소스, xml, properties
           >src/main/java
           >src/main/resource
           >maven dependencies
@@ -1142,4 +1142,87 @@
                   return selectList("customer.selectCustomerList", vo);[맵퍼 아이디와 파라미터 오브젝트 명시하여 select 실행]
               }                                                          
           }                                                           
-                                                            
+          
+          Parameter 및 Result Object로 활용되는 CustomerVO는 id, name, address를 멤버변수로 가진다.
+          
+          * CustomerVO.java 예시
+          public class CustomerVO {
+              String id;
+              String name;
+              String address;
+          }
+          
+        6. Service 및 Java 어플리케이션 작성
+          controller, JUnit, Java 어플리케이션에서 실행 시킬수 있는 서비스작성 예시이다.
+          트랜잭션 및 비지니스 로직 처리를 위한 서비스를 정의, 실행 시키는 것이 일반적이며,
+          DAO를 바로 호출하지 않는다.
+          
+          * CustomerServiceImpl.java 작성
+          @Service("customerService")
+          public class CustomerServiceImpl implements CustomerService {
+              @Resource(name="customerDAO")
+              public CustomerDAO customerDAO;
+              
+              public void insertCustomer(CustomerVO customerVO) throws Exception {
+                  customerDAO.insertCustomer(customerVO);
+              }
+              
+              public List<CustomerVO> selectCustomerList(CustomerVO customerVO) throws Exception {
+                  return customerDAO.selectCustomerList(customerVO);
+              }
+          }
+          
+          아래는 DAO와 Service를 테스트하기 위한 어플리케이션 작성 예시
+          * CustomerApp.java 작성
+          public class CustomerApp {
+              public static void main(String[] args) thorws Exception {
+                  String configLocation = "classpath*:META-INF/spring/context-*.xml";
+                  ApplicationContext context = new ClassPathXmlApplicationContext(configLocation);
+                  
+                  CustomerService customer = (CustomerService)context.getBean("customerService");
+                  
+                  vo.id = "1";
+                  vo.name = "KIM";
+                  vo.address = "SEOUL";
+                  customer.insertCustomer(vo);
+                  
+                  vo.id = "2";
+                  vo.name = "LEE";
+                  vo.address = "PUSAN";
+                  customer.insertCustomer(vo);
+                  
+                  List<CustomerVO> resultList = customer.selectCustomerList(vo);
+                  int num = resultList.size();
+                  for(int i=0; i<num; i++) {
+                    customerVO resultvo = resultList.get(i);
+                    System.out.println("id="+resultvo.id);
+                    System.out.println("name="+resultvo.name);
+                    System.out.println("address="+resultvo.address);
+                  }
+              }
+            }
+            
+            JavaSQL 과 MyBatis의 비교
+            JavaSQL : DB연결, SQL문 준비, 실행 후 ResultSet처리, 리소스반환등의 작업을 개발자가 처리하고
+            MyBatis : SQL문은 설정파일에 기재, 실행시 mapper에 정의된 SQL id와 parameter object를 전달하기에
+                      간단하게 구현과 실행이 가능하며, 소스코드수를 줄여주고, 정형화된 코드를 관리하기 쉽다.
+            
+            아래는 MyBatis 에서 지원하는 Dynamic SQL의 예제 이다.
+            
+            <select id="selectEmpList" parameterType=“empVO" resultType=“empVO">
+                select EMP_NO as empNo, EMP_NAME as empName
+                 from EMP
+              <trim prefix="WHERE" prefixOverrides="AND|OR ">
+                <if test="empNo != null">
+                    EMP_NO = #{empNo}
+                </if>
+                <if test="empName != null">
+                    AND EMP_NAME LIKE '%' || #{empName} || '%‘
+                </if>
+              </trim>
+            </select>
+            
+      9.5. Transaction 처리
+        DB의 정합성을 위하여 반드시 필요한 개념.
+        전체 처리과정의 모든 결과가 성공한 상태일때는 진행되고, 하나라도 누락시엔 되돌리는것.
+        
