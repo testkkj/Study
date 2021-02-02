@@ -1,0 +1,21 @@
+package egovframework.example.sample.service.impl;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Service;
+
+import egovframework.example.sample.service.kimloginService;
+import egovframework.example.sample.service.kimloginVO;
+
+@Service("kimloginService")
+public class kimloginServiceImpl implements kimloginService {
+	
+	@Resource(name="kimloginMapper")
+	private kimloginMapper kimloginDAO;
+	
+	@Override
+	public int kimlogin(kimloginVO kimloginVO) throws Exception {
+		return kimloginDAO.kimlogin(kimloginVO);
+	}
+
+}

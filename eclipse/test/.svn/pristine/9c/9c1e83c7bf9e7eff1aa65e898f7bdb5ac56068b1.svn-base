@@ -1,0 +1,9 @@
+package egovframework.example.sample.service.impl;
+
+import egovframework.example.sample.service.kimloginVO;
+import egovframework.rte.psl.dataaccess.mapper.Mapper;
+
+@Mapper("kimloginMapper")
+public interface kimloginMapper {
+	public int kimlogin(kimloginVO kimloginVO) throws Exception;
+}

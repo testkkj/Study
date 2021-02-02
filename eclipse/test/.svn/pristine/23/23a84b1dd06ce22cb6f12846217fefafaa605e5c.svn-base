@@ -1,0 +1,43 @@
+package egovframework.example.sample.web;
+
+import javax.annotation.Resource;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import egovframework.example.sample.service.kimloginService;
+import egovframework.example.sample.service.kimloginVO;
+
+@Controller
+public class kimController {
+	
+	@Resource(name="kimloginService")
+	private kimloginService kimloginService;
+	
+	@RequestMapping("kim/hello.do")
+	public String hello(Model model) throws Exception {
+		return "sample/hello";
+	}
+	
+	@RequestMapping("kim/login.do")
+	public String login(kimloginVO kimloginVO) throws Exception {
+		int loginCheck = 0;
+		String mapping = "";
+		try {
+			loginCheck = kimloginService.kimlogin(kimloginVO);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		
+		if (loginCheck == 1) {
+			mapping = "sample/kimmain";
+		} else {
+			mapping = "sample";
+		}
+		
+		return "";
+	}
+
+}
