@@ -1,7 +1,8 @@
 package com.example.demo.controller;
 
-import com.example.demo.serviceImpl.loginServiceImple;
+import com.example.demo.service.loginService;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -10,6 +11,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller
 public class controller {
+    @Autowired
+    loginService loginService;
+
     @RequestMapping("/")
     public String index() {
         return "index";
@@ -17,19 +21,18 @@ public class controller {
 
     @RequestMapping("/login.do")
     public String login() {
-        loginServiceImple loginServiceImple = new loginServiceImple();
         int result = 0;
 
         try {
-            result = loginServiceImple.login();
+            result = loginService.login();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         if (result == 0) {
-            return "index.do";
+            return "index";
         } else {
-            return "loginsuccess.do";
+            return "loginsuccess";
         }
         
     }
