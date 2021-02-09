@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가계부</title>
+    <!-- <link rel="stylesheet" th:href="@{/css/reset.css}"/> -->
+    <style>
+        .calculater_base{
+            width: 600px;
+            height: 600px;
+            background-color: lightgreen;
+        }
+
+        .calculater_base input{
+            width: 400px;
+            height: 100px;
+        }
+
+        .calculater_base button{
+            width: 100px;
+            height: 100px;
+            float: left;
+        }
+        
+        .calculater_base button:nth-last-child(3){
+            width: 200px;
+        }
+
+        .calculater_base .free{
+            clear: both;
+        }
+
+    </style>
+    <script>
+        function test() {
+            var test = document.getElementsByTagName("button");
+            console.log(test.length);
+            for (let i = 0; i < test.length; i++) {
+                const element = test[i];
+                console.log(element.innerText);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>계산기</h1>
+    <div class="calculater_base">
+        <input type="text" name="calculater_display" id="calculater_display">
+        <div class="free"></div>
+        <button onclick="test()">7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>+</button>
+        <div class="free"></div>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
+        <div class="free"></div>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>*</button>
+        <div class="free"></div>
+        <button>0</button>
+        <button>=</button>
+        <button>/</button>
+    </div>
+</body>
+</html>
