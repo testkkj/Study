@@ -33,16 +33,6 @@
         }
 
     </style>
-    <script>
-        function test() {
-            var test = document.getElementsByTagName("button");
-            console.log(test.length);
-            for (let i = 0; i < test.length; i++) {
-                const element = test[i];
-                console.log(element.innerText);
-            }
-        }
-    </script>
 </head>
 <body>
     <h1>계산기</h1>
@@ -50,7 +40,7 @@
         <input type="text" name="calculater_display" id="calculater_display">
         <div class="free"></div>
         <button onclick="test()">7</button>
-        <button>8</button>
+        <button id="no">8</button>
         <button>9</button>
         <button>+</button>
         <div class="free"></div>
@@ -68,5 +58,25 @@
         <button>=</button>
         <button>/</button>
     </div>
+    <script>
+        function con(params) {
+            console.log(params);
+        }
+
+        var test = document.getElementsByTagName("button");
+        for (let i = 0; i < test.length; i++) {
+            const element = test[i];
+            element.onclick = function(){
+                var inp = document.getElementById("calculater_display");
+                var inp2 = this.innerText;
+                var regexp = /[^0-9]/g;
+                var result = inp2.match(regexp);
+                if (!result) {
+                    con(inp2);
+                    inp.value = inp2;                    
+                }
+            }
+        }
+    </script>
 </body>
 </html>
