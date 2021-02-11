@@ -15,4 +15,10 @@ public class AccountBookController {
         ModelAndView modelAndView = new ModelAndView("demo/accountBook");
         return modelAndView;
     }
+
+    @RequestMapping("/demo/accountBook1.do")
+    public ModelAndView accountBookIndex1() {
+        ModelAndView modelAndView = new ModelAndView("demo/accountBook1");
+        return modelAndView;
+    }
 }
