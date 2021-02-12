@@ -39,67 +39,41 @@
     <div class="calculater_base">
         <input type="text" name="calculater_display" id="calculater_display">
         <div class="free"></div>
-        <button onclick="calculate(this)">7</button>
-        <button onclick="calculate(this)">8</button>
-        <button onclick="calculate(this)">9</button>
-        <button onclick="calculate(this)">+</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>+</button>
         <div class="free"></div>
-        <button onclick="calculate(this)">4</button>
-        <button onclick="calculate(this)">5</button>
-        <button onclick="calculate(this)">6</button>
-        <button onclick="calculate(this)">-</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>-</button>
         <div class="free"></div>
-        <button onclick="calculate(this)">1</button>
-        <button onclick="calculate(this)">2</button>
-        <button onclick="calculate(this)">3</button>
-        <button onclick="calculate(this)">*</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>*</button>
         <div class="free"></div>
-        <button onclick="calculate(this)">0</button>
-        <button onclick="calculate(this)">=</button>
-        <button onclick="calculate(this)">/</button>
+        <button>0</button>
+        <button>=</button>
+        <button>/</button>
     </div>
     <script>
         function con(params) {
             console.log(params);
         }
-
-        var firstNumber = 0;
-        var secondNumber = 0;
-        var arithmeticOperator = "";
-        var result = "";
-        function calculate(params) {
-            if (!isNaN(params.innerText)) {
-                con(params.innerText);
-                firstNumber = firstNumber + params.innerText;
-                firstNumber = firstNumber.replace(/(^0+)/, "");
-                con('firstNumber');
-                con(firstNumber);
-            } else if (isNaN(params.innerText) && params.innerText != "=") {
-                secondNumber = firstNumber;
-                con('secondNumber');
-                con(secondNumber);
-                firstNumber = 0;
-                arithmeticOperator = params.innerText;
-            } else {
-                result = document.getElementById("calculater_display");
-                con(result);
-                con(params.innerText);
-                switch (arithmeticOperator) {
-                    case '+':
-                        result.value = Number(firstNumber) + Number(secondNumber);
-                        break;
-                    case '-':
-                        result.value = Number(firstNumber) - Number(secondNumber)
-                        break;
-                    case '*':
-                        result.value = Number(firstNumber) * Number(secondNumber)
-                        break;
-                    case '*':
-                        result.value = Number(firstNumber) / Number(secondNumber)
-                        break;
-                    default:
-                        console.log(`Sorry.`);
-                }
+        var buttons = document.getElementsByTagName("button");
+        var input = document.getElementById("calculater_display");
+        for (let i = 0; i < buttons.length; i++) {
+            const element = buttons[i];
+            element.onclick = function(event){
+                con(event.currentTarget.innerText);
+                con(input.textContent);
+                con(input.text);
+                con(input.value);
+                con(input.innerText);
+                con(input.innerHTML);
+                input.value = input.value + event.currentTarget.innerText;
             }
         }
     </script>
