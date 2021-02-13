@@ -62,6 +62,11 @@
         function con(params) {
             console.log(params);
         }
+
+        function result(params) {
+            con('실행됬으요');
+            eval(params);
+        }
         var buttons = document.getElementsByTagName("button");
         var input = document.getElementById("calculater_display");
         for (let i = 0; i < buttons.length; i++) {
@@ -73,7 +78,11 @@
                 con(input.value);
                 con(input.innerText);
                 con(input.innerHTML);
-                input.value = input.value + event.currentTarget.innerText;
+                if (event.currentTarget.innerText === '=') {
+                    input.value = result(input.value);
+                }else{
+                    input.value = input.value + event.currentTarget.innerText;
+                }
             }
         }
     </script>
