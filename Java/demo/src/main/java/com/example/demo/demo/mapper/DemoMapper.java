@@ -13,4 +13,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface DemoMapper {
 
     List<DemoDto> selectBoardList() throws Exception;
+
+    void insertBoard(DemoDto demoDto) throws Exception;
 }

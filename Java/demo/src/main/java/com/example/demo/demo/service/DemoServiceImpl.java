@@ -21,5 +21,10 @@ public class DemoServiceImpl implements DemoService {
     public List<DemoDto> selectBoardList() throws Exception {
         return demoMapper.selectBoardList();
     }
+
+    @Override
+    public void insertBoard(DemoDto demoDto) throws Exception {
+        demoMapper.insertBoard(demoDto);
+    }
     
 }

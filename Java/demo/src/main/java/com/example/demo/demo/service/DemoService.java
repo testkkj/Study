@@ -11,4 +11,5 @@ public interface DemoService {
 
     List<DemoDto> selectBoardList() throws Exception;
     
+    void insertBoard(DemoDto demoDto) throws Exception;
 }

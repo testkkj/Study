@@ -28,4 +28,15 @@ public class DemoController {
 
         return modelAndView;
     }
+
+    @RequestMapping("/demo/openBoardWrite.do")
+    public String openBoardWrite() throws Exception {
+        return "/demo/boardWrite";
+    }
+
+    @RequestMapping("/demo/insertBoard.do")
+    public String insertBoard(DemoDto demoDto) throws Exception {
+        demoService.insertBoard(demoDto);
+        return "redirect:/demo/openBoardList.do";
+    }
 }
