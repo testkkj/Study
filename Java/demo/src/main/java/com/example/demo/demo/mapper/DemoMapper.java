@@ -15,4 +15,8 @@ public interface DemoMapper {
     List<DemoDto> selectBoardList() throws Exception;
 
     void insertBoard(DemoDto demoDto) throws Exception;
+
+    void updateHitCount(int boardIdx) throws Exception;
+
+    DemoDto selectBoardDetail(int boardIdx) throws Exception;
 }

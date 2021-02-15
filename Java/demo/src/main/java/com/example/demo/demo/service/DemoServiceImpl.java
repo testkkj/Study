@@ -26,5 +26,14 @@ public class DemoServiceImpl implements DemoService {
     public void insertBoard(DemoDto demoDto) throws Exception {
         demoMapper.insertBoard(demoDto);
     }
+
+    @Override
+    public DemoDto selectBoardDetail(int boardIdx) throws Exception {
+        demoMapper.updateHitCount(boardIdx);
+
+        DemoDto demoDto = demoMapper.selectBoardDetail(boardIdx);
+
+        return demoDto;
+    }
     
 }
