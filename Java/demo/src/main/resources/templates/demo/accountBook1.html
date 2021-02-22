@@ -65,19 +65,36 @@
 
         function result(params) {
             con('실행됬으요');
-            eval(params);
+            return eval(params);
         }
         var buttons = document.getElementsByTagName("button");
         var input = document.getElementById("calculater_display");
+        var first = '';
         for (let i = 0; i < buttons.length; i++) {
             const element = buttons[i];
             element.onclick = function(event){
                 con(event.currentTarget.innerText);
-                con(input.textContent);
-                con(input.text);
-                con(input.value);
-                con(input.innerText);
-                con(input.innerHTML);
+                switch (event.currentTarget.innerText) {
+                    case '+':
+                        first = input.value;
+                        input.value = '';
+                        break;
+                    case '-':
+                        first = input.value;
+                        input.value = '';
+                        break;
+                    case '*':
+                        first = input.value;
+                        input.value = '';
+                        break;
+                    case '/':
+                        first = input.value;
+                        input.value = '';
+                        break;
+                
+                    default:
+                        break;
+                }
                 if (event.currentTarget.innerText === '=') {
                     input.value = result(input.value);
                 }else{
