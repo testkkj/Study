@@ -1,0 +1,36 @@
+buildscript {
+    //ext는 build.gradle의 전역변수를 설정한다는 뜻
+    ext {
+        springBootVersion = '2.1.7.RELEASE'
+    }
+    //의존성(라이브러리)을 어디에서 받을지 지정
+    //기존엔 mavenCentral에서 등록의 어려움 때문에 jcenter로 이동중
+    repositories {
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        //스프링부트 그레이들 플러그인 버전을 위에서 지정한 전역변수에서 설정
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+//이 플러그인들은 자바와 스프링 부트를 사용하는데 필요한 필수 플러그인
+//특히 io. 플러그인은 스프링 부트의 의존성을 관리해 주는 플러그인 필수!
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+
+group 'com.jojoldu.book'
+version '1.0-SNAPSHOT'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
