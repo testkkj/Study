@@ -7,11 +7,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import static org.hamcrest.Matchers.is;
 import org.springframework.test.web.servlet.ResultActions;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 /**
  * JUnit에 내장된 실행자 외에 다른 실행자를 실행시킴
@@ -40,7 +40,7 @@ public class HelloControllerTest {
     private MockMvc mvc;
 
     @Test
-    public void hellowillreturn() throws Exception {
+    public void hello가_리턴된다() throws Exception {
         String hello = "hello";
 
         /**
@@ -89,5 +89,31 @@ public class HelloControllerTest {
          * Controller의 리턴값이 hello가 맞는지 검증
          */
         mvc.perform(get("/hello")).andExpect(status().isOk()).andExpect(content().string(hello));
+    }
+
+    @Test
+    public void helloDto가_리턴된다() throws Exception {
+        String name = "hello";
+        int amount = 1000;
+
+        mvc.perform(
+                get("/hello/dto")
+                        /**
+                         * param
+                         * API 테스트에 사용될 파라미터 설정
+                         * String만 허용
+                         * 숫자/날짜는 String으로 변경해야됨
+                         */
+                        .param("name", name)
+                        .param("amount", String.valueOf(amount)))
+        .andExpect(status().isOk())
+                /**
+                 * jsonPath
+                 * JSON 응답값을 필드별로 검증할 수 있는 메소드
+                 * $를 기준으로 필드명을 명시
+                 * 필드 name, amount 이므로 $.name, $.amount
+                 */
+        .andExpect(jsonPath("$.name", is(name)))
+        .andExpect(jsonPath("$.amount", is(amount)));
     }
 }
