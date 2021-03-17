@@ -1,6 +1,9 @@
 package com.jojoldu.book.springboot.domain.posts;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+
+import java.util.List;
 
 /**
  * ibatis / MyBatis 등에서 Dao 라고 불리는 DB Layer 접근자
@@ -10,4 +13,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
  * 주의할 점 Entity와 EntityRepository는 함께 위치해야함
  */
 public interface PostsRepository extends JpaRepository<Posts, Long> {
+
+    @Query("SELECT p FROM Posts p ORDER BY p.id DESC")
+    List<Posts> findAllDesc();
 }
