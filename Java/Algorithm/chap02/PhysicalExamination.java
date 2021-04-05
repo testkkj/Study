@@ -34,7 +34,7 @@ public class PhysicalExamination {
 
         dist[i] = 0;
 
-        for (int j = 0; j < dist.length; j++) {
+        for (i = 0; i < dat.length; i++) {
             if (dat[i].vision >= 0.0 && dat[i].vision <= VMAX / 10.0) {
                 dist[(int)(dat[i].vision * 10)]++;
             }
@@ -54,7 +54,7 @@ public class PhysicalExamination {
             new PhyscData("박용규", 169, 0.8),
         };
 
-        int[] vdis = new int[VMAX];
+        int[] vdist = new int[VMAX];
 
         System.out.println("*신체검사 리스트*");
         System.out.println("이름     키     시력");
@@ -64,11 +64,11 @@ public class PhysicalExamination {
         }
         System.out.printf("\n 평균 키 : %5.1fcm\n", aveHeight(x));
 
-        distVision(x, vdis);
+        distVision(x, vdist);
 
         System.out.println("\n 시력 분포");
         for (int i = 0; i < VMAX; i++) {
-            System.out.printf("%3.1f~:%2d명\n", i/10.0,vdis[i]);
+            System.out.printf("%3.1f~:%2d명\n", i/10.0,vdist[i]);
         }
     }
 }
