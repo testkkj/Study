@@ -1,8 +1,9 @@
 {
     "java.project.sourcePaths": [
+        "chap04",
         "chap03",
         "chap02",
         "chap01",
-        "chap04"
+        "chap05"
     ]
 }
