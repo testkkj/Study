@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ShellSort",
+            "request": "launch",
+            "mainClass": "ShellSort",
+            "projectName": "Algorithm_298ef218"
+        },
+        {
+            "type": "java",
             "name": "Launch InsertionSort",
             "request": "launch",
             "mainClass": "InsertionSort",
