@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Partition",
+            "request": "launch",
+            "mainClass": "Partition",
+            "projectName": "Algorithm_298ef218"
+        },
+        {
+            "type": "java",
             "name": "Launch ShellSort2",
             "request": "launch",
             "mainClass": "ShellSort2",
