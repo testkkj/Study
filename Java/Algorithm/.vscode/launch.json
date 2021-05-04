@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch MergeArray",
+            "request": "launch",
+            "mainClass": "MergeArray",
+            "projectName": "Algorithm_298ef218"
+        },
+        {
+            "type": "java",
             "name": "Launch QuickSort2",
             "request": "launch",
             "mainClass": "QuickSort2",
