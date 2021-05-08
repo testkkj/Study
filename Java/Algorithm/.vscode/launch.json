@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch PhyscExamSort",
+            "request": "launch",
+            "mainClass": "PhyscExamSort",
+            "projectName": "Algorithm_298ef218"
+        },
+        {
+            "type": "java",
             "name": "Launch SortCalendar",
             "request": "launch",
             "mainClass": "SortCalendar",
