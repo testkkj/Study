@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch Fsort",
+            "request": "launch",
+            "mainClass": "Fsort",
+            "projectName": "Algorithm_298ef218"
+        },
+        {
+            "type": "java",
             "name": "Launch HeapSort",
             "request": "launch",
             "mainClass": "HeapSort",
