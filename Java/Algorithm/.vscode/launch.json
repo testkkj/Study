@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch ToStringTester",
+            "request": "launch",
+            "mainClass": "ToStringTester",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
             "name": "Launch Fsort",
             "request": "launch",
             "mainClass": "Fsort",

@@ -107,7 +107,7 @@ public class IntSet {
 
     //집합 s1과 s2의 합집합을 복사합니다.
     public void unionOf(IntSet s1, IntSet s2) {
-        copyForm(s1); //집합 s1을 복사합니다.
+        copyFrom(s1); //집합 s1을 복사합니다.
         for (int i = 0; i < s2.num; i++) { //집합 s2의 요소를 추가합니다.
             add(s2.set[i]);
         }
