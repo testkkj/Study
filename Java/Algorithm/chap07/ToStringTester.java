@@ -1,6 +1,6 @@
 //toString 메서드의 오버라이드 차이점 확인하기
 
-class A {
+class AA {
     //toString을 정의하지 않습니다.
 }
 
@@ -22,8 +22,8 @@ class B {
  */
 public class ToStringTester {
     public static void main(String[] args) {
-        A a1 = new A();
-        A a2 = new A();
+        AA a1 = new AA();
+        AA a2 = new AA();
         B b1 = new B(18);
         B b2 = new B(55);
 

@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch IntSetTester",
+            "request": "launch",
+            "mainClass": "IntSetTester",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
             "name": "Launch ToStringTester",
             "request": "launch",
             "mainClass": "ToStringTester",
