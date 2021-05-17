@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch IndexOfTester",
+            "request": "launch",
+            "mainClass": "IndexOfTester",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
             "name": "Launch BFmatch",
             "request": "launch",
             "mainClass": "BFmatch",
