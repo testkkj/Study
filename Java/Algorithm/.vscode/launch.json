@@ -6,6 +6,20 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch KMPmatch",
+            "request": "launch",
+            "mainClass": "KMPmatch",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
+            "name": "Launch BMmatch",
+            "request": "launch",
+            "mainClass": "BMmatch",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
             "name": "Launch IndexOfTester",
             "request": "launch",
             "mainClass": "IndexOfTester",
