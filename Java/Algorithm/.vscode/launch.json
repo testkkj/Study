@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "Launch LinkedListTester",
+            "request": "launch",
+            "mainClass": "LinkedListTester",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
             "name": "Launch HelloWorldSwing",
             "request": "launch",
             "mainClass": "HelloWorldSwing",

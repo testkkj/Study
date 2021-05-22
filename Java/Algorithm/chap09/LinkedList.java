@@ -26,7 +26,7 @@ public class LinkedList<E> {
     public E search(E obj, Comparator<? super E> c) {
         Node<E> ptr = head; // 현재 스캔중인 노드
 
-        while (prt != null) {
+        while (ptr != null) {
             if (c.compare(obj, ptr.data) == 0) { // 검색 성공
                 crnt = ptr;
                 return ptr.data;
@@ -81,6 +81,32 @@ public class LinkedList<E> {
         }
     }
 
+    //노드 p를 삭제
+    public void remove(Node p) {
+        if (head != null) {
+            if (p == head) { //p가 머리 노드면
+                removeFirst(); //머리 노드를 삭제
+            } else {
+                Node<E> ptr = head;
+
+                while (ptr.next != p) {
+                    ptr = ptr.next;
+                    if (ptr == null) {
+                        return; //p가 리스트에 없습니다.
+                    }
+                }
+
+                ptr.next = p.next;
+                crnt = ptr;
+            }
+        }
+    }
+
+    //선택 노드를 삭제
+    public void removeCurrentNode() {
+        remove(crnt);
+    }
+
     //모든 노드를 삭제
     public void clear() {
         while (head != null) { //노드에 아무것도 없을 때까지
@@ -92,7 +118,7 @@ public class LinkedList<E> {
     //선택 노드를 하나 뒤쪽으로 이동
     public boolean next() {
         if (crnt == null || crnt.next == null) {
-            return flase; //이동할 수 없음
+            return false; //이동할 수 없음
         }
         crnt = crnt.next;
         return true;
