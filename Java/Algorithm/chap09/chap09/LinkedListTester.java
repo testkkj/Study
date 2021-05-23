@@ -1,5 +1,5 @@
+package chap09;
 import java.util.Comparator;
-import java.util.LinkedList;
 import java.util.Scanner;
 /**
  * LinkedListTester
@@ -110,7 +110,7 @@ public class LinkedListTester {
         Menu menu; // 메뉴
         Data data; // 추가용 데이터 참조
         Data ptr; // 검색용 데이터 참조
-        Data temp; // 입력용 데이터
+        Data temp = new Data(); // 입력용 데이터
 
         LinkedList<Data> list = new LinkedList<Data>(); // 리스트를 생성
 

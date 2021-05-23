@@ -1,3 +1,4 @@
+package chap09;
 import java.util.Comparator;
 
 /**
@@ -42,7 +43,7 @@ public class LinkedList<E> {
     }
 
     //꼬리에 노드 삽입
-    public void addLAst(E obj) {
+    public void addLast(E obj) {
         if (head == null) { //리스트가 비어 있으면
             addFirst(obj); //머리에 삽입
         } else {

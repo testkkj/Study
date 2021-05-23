@@ -8,6 +8,27 @@
             "type": "java",
             "name": "Launch LinkedListTester",
             "request": "launch",
+            "mainClass": "chap09.LinkedListTester",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
+            "name": "Launch LinkedListTTester_09_03",
+            "request": "launch",
+            "mainClass": "chap09.LinkedListTTester_09_03",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
+            "name": "Launch LinkedListTTester_09_03",
+            "request": "launch",
+            "mainClass": "LinkedListTTester_09_03",
+            "projectName": "Algorithm_1861f460"
+        },
+        {
+            "type": "java",
+            "name": "Launch LinkedListTester",
+            "request": "launch",
             "mainClass": "LinkedListTester",
             "projectName": "Algorithm_1861f460"
         },
