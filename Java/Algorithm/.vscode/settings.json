@@ -1,14 +1,6 @@
 {
     "java.project.sourcePaths": [
-        "start-HelloWorldSwingProject/src/start",
-        "chap08",
-        "chap07",
-        "chap06",
-        "chap05",
-        "chap04",
-        "chap03",
-        "chap02",
-        "chap01",
-        "chap09"
+        "Algorithm/src/chap09",
+        "Algorithm/src/chap08"
     ]
 }

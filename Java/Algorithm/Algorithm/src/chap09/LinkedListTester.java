@@ -1,4 +1,3 @@
-package chap09;
 import java.util.Comparator;
 import java.util.Scanner;
 /**
