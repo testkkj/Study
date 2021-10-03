@@ -5,7 +5,8 @@
     <router-link to="/databinding">Data Binding</router-link> |
     <router-link to="/databindinghtml">Data Binding Html</router-link> |
     <router-link to="/databindinginputtext">Data Binding Input Text</router-link> |
-    <router-link to="/databindinginputnumber">Data Binding Input Number</router-link>
+    <router-link to="/databindinginputnumber">Data Binding Input Number</router-link> |
+    <router-link to="/databindingTextarea">Data Binding Textarea</router-link>
   </div>
   <router-view/>
 </template>
