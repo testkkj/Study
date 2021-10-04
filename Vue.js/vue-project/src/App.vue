@@ -6,7 +6,9 @@
     <router-link to="/databindinghtml">Data Binding Html</router-link> |
     <router-link to="/databindinginputtext">Data Binding Input Text</router-link> |
     <router-link to="/databindinginputnumber">Data Binding Input Number</router-link> |
-    <router-link to="/databindingTextarea">Data Binding Textarea</router-link>
+    <router-link to="/databindingtextarea">Data Binding Textarea</router-link> |
+    <router-link to="/databindingselect">Data Binding Select</router-link> |
+    <router-link to="/databindingcheckbox">Data Binding Checkbox</router-link>
   </div>
   <router-view/>
 </template>
