@@ -13,7 +13,9 @@
     <router-link to="/databindingbutton">Data Binding Button</router-link> |
     <router-link to="/databindingclass">Data Binding Class</router-link> |
     <router-link to="/databindingclass2">Data Binding Class2</router-link> |
-    <router-link to="/databindingstyle">Data Binding Style</router-link>
+    <router-link to="/databindingstyle">Data Binding Style</router-link> |
+    <router-link to="/databindinglist">Data Binding List</router-link> |
+    <router-link to="/renderingvif">Rendering V-if</router-link>
   </div>
   <router-view/>
 </template>
@@ -28,6 +30,8 @@
 }
 
 #nav {
+  width: 60%;
+  margin-left: 20%;
   padding: 30px;
 }
 
