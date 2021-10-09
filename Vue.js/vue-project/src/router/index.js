@@ -14,8 +14,10 @@ import DataBindingClass2 from "../views/DataBindingClass2.vue"
 import DataBindingStyle from "../views/DataBindingStyle.vue"
 import DataBindingList from "../views/DataBindingList.vue"
 import RenderingVif from "../views/RenderingVif.vue"
-import EventClick from "../views/EventClick"
-import EventChange from "../views/EventChange"
+import EventClick from "../views/EventClick.vue"
+import EventChange from "../views/EventChange.vue"
+import Computed from "../views/Computed.vue"
+import Watch from "../views/Watch.vue"
 
 const routes = [
   {
@@ -111,6 +113,16 @@ const routes = [
     path: '/eventchange',
     name: 'EventChange',
     component: EventChange
+  },
+  {
+    path: '/computed',
+    name: 'Computed',
+    component: Computed
+  },
+  {
+    path: '/watch',
+    name: 'Watch',
+    component: Watch
   }
 ]
 

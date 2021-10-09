@@ -17,7 +17,9 @@
     <router-link to="/databindinglist">Data Binding List</router-link> | 
     <router-link to="/renderingvif">Rendering V-if</router-link> | 
     <router-link to="/eventclick">Event Click</router-link> | 
-    <router-link to="/eventchange">Event Change</router-link>
+    <router-link to="/eventchange">Event Change</router-link> | 
+    <router-link to="/computed">Computed</router-link> | 
+    <router-link to="/watch">Watch</router-link>
   </div>
   <router-view/>
 </template>
