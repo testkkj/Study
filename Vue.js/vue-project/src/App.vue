@@ -19,7 +19,8 @@
     <router-link to="/eventclick">Event Click</router-link> | 
     <router-link to="/eventchange">Event Change</router-link> | 
     <router-link to="/computed">Computed</router-link> | 
-    <router-link to="/watch">Watch</router-link>
+    <router-link to="/watch">Watch</router-link> | 
+    <router-link to="/databindinglist2">Data Binding List2</router-link>
   </div>
   <router-view/>
 </template>

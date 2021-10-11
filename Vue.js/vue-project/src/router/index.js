@@ -18,6 +18,7 @@ import EventClick from "../views/EventClick.vue"
 import EventChange from "../views/EventChange.vue"
 import Computed from "../views/Computed.vue"
 import Watch from "../views/Watch.vue"
+import DataBindingList2 from "../views/DataBindingList2.vue"
 
 const routes = [
   {
@@ -123,6 +124,11 @@ const routes = [
     path: '/watch',
     name: 'Watch',
     component: Watch
+  },
+  {
+    path: '/databindinglist2',
+    name: 'DataBindingList2',
+    component: DataBindingList2
   }
 ]
 
