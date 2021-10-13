@@ -21,7 +21,9 @@
     <router-link to="/computed">Computed</router-link> | 
     <router-link to="/watch">Watch</router-link> | 
     <router-link to="/databindinglist2">Data Binding List2</router-link> | 
-    <router-link to="/nestedcomponent">Nested Component</router-link>
+    <router-link to="/nestedcomponent">Nested Component</router-link> | 
+    <router-link to="/parentcomponent">Parent Component</router-link> | 
+    <router-link to="/parentcomponent2">Parent Component2</router-link>
   </div>
   <router-view/>
 </template>

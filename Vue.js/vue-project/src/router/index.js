@@ -20,6 +20,8 @@ import Computed from "../views/Computed.vue"
 import Watch from "../views/Watch.vue"
 import DataBindingList2 from "../views/DataBindingList2.vue"
 import NestedComponent from "../views/NestedComponent.vue"
+import ParentComponent from "../views/ParentComponent.vue"
+import ParentComponent2 from "../views/ParentComponent2.vue"
 
 const routes = [
   {
@@ -135,6 +137,16 @@ const routes = [
     path: '/nestedcomponent',
     name: 'NestedComponent',
     component: NestedComponent
+  },
+  {
+    path: '/parentcomponent',
+    name: 'ParentComponent',
+    component: ParentComponent
+  },
+  {
+    path: '/parentcomponent2',
+    name: 'ParentComponent2',
+    component: ParentComponent2
   }
 ]
 
