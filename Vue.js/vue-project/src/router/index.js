@@ -22,6 +22,9 @@ import DataBindingList2 from "../views/DataBindingList2.vue"
 import NestedComponent from "../views/NestedComponent.vue"
 import ParentComponent from "../views/ParentComponent.vue"
 import ParentComponent2 from "../views/ParentComponent2.vue"
+import ParentComponent3 from "../views/ParentComponent3.vue"
+import ParentComponent4 from "../views/ParentComponent4.vue"
+import ParentComponent5 from "../views/ParentComponent5.vue"
 
 const routes = [
   {
@@ -147,6 +150,21 @@ const routes = [
     path: '/parentcomponent2',
     name: 'ParentComponent2',
     component: ParentComponent2
+  },
+  {
+    path: '/parentcomponent3',
+    name: 'ParentComponent3',
+    component: ParentComponent3
+  },
+  {
+    path: '/parentcomponent4',
+    name: 'ParentComponent4',
+    component: ParentComponent4
+  },
+  {
+    path: '/parentcomponent5',
+    name: 'ParentComponent5',
+    component: ParentComponent5
   }
 ]
 

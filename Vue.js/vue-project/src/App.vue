@@ -23,7 +23,10 @@
     <router-link to="/databindinglist2">Data Binding List2</router-link> | 
     <router-link to="/nestedcomponent">Nested Component</router-link> | 
     <router-link to="/parentcomponent">Parent Component</router-link> | 
-    <router-link to="/parentcomponent2">Parent Component2</router-link>
+    <router-link to="/parentcomponent2">Parent Component2</router-link> | 
+    <router-link to="/parentcomponent3">Parent Component3</router-link> | 
+    <router-link to="/parentcomponent4">Parent Component4</router-link> | 
+    <router-link to="/parentcomponent5">Parent Component5</router-link>
   </div>
   <router-view/>
 </template>
