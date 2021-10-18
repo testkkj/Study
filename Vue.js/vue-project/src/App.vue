@@ -29,7 +29,8 @@
     <router-link to="/parentcomponent5">Parent Component5</router-link> | 
     <router-link to="/slotusemodallayout">Slot Use Modal Layout</router-link> | 
     <router-link to="/provideinject">Provide Inject</router-link> | 
-    <router-link to="/compositionapi4">Composition API4</router-link>
+    <router-link to="/compositionapi4">Composition API4</router-link> | 
+    <router-link to="/compositionapiprovideinject">Composition API Inject</router-link>
   </div>
   <router-view/>
 </template>

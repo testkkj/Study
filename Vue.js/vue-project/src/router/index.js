@@ -28,6 +28,7 @@ import ParentComponent5 from "../views/ParentComponent5.vue"
 import SlotUseModalLayout from "../views/SlotUseModalLayout.vue"
 import ProvideInject from "../views/ProvideInject.vue"
 import CompositionAPI4 from "../views/CompositionAPI4.vue"
+import CompositionAPIInject from "../views/CompositionAPIInject.vue"
 
 const routes = [
   {
@@ -183,6 +184,11 @@ const routes = [
     path: '/compositionapi4',
     name: 'CompositionAPI4',
     component: CompositionAPI4
+  },
+  {
+    path: '/compositionapiinject',
+    name: 'CompositionAPIInject',
+    component: CompositionAPIInject
   }
 ]
 
