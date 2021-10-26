@@ -51,11 +51,74 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row pt-3 pb-3 border-top"></div>
+                            <div class="row pt-3 pb-3 border-top">
+                                <div class="col-6">
+                                    <h3>총 상품 금액</h3>
+                                </div>
+                                <div class="col-6" style="text-align: right;">
+                                    <h3>{{getCurrencyFormat(totalPrice)}}원</h3>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="col-6 d-grid p-1">
+                                    <button type="button" class="btn btn-lg btn-dark">장바구니 담기</button>
+                                </div>
+                                <div class="col-6 d-grid p-1">
+                                    <button type="button" class="btn btn-lg btn-dark">주문하기</button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <img :src="'/download/${productId}/${productDetail.path}'" alt="" class="img-fluid">
                 </div>
             </div>
         </div>
     </main>
 </template>
+<script>
+export default {
+    data() {
+        return {
+            productId: 0,
+            productDetail: {},
+            productImage: [],
+            total: 1,
+            totalPrice: 0
+        };
+    },
+    created() {
+        this.productId = this.$route.query.product_id;
+        this.getProductDetail();
+        this.getProductImage();
+    },
+    methods:{
+        calculatePrice(cnt) {
+            let total = this.total + cnt;
+            if (total < 1) {
+                total = 1;
+            }
+            this.total = total;
+            this.totalPrice = this.productDetail.product_price * this.total;
+        },
+        getCurrencyFormat(value) {
+            return this.$currencyFormat(value);
+        },
+        async getProductDetail() {
+            let productDetail = await this.$api("/api/productDetail",{param:[this.productId]});
+            if (productDetail.length > 0) {
+                this.productDetail = productDetail[0];
+                this.totalPrice = this.totalPrice = this.productDetail.product_price * this.total;
+            }
+            console.log(this.productDetail);
+        },
+        async getProductImage() {
+            this.productImage = await this.$api("/api/productMainImages",{param:[this.productId]});
+            console.log('this.productImage', this.productImage)
+        }
+    }
+}
+</script>
