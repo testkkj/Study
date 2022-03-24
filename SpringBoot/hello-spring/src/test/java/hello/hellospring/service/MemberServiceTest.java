@@ -1,8 +1,7 @@
 package hello.hellospring.service;
 
-import static org.assertj.core.api.Assertions.*;
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.fail;
 
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
@@ -19,7 +18,7 @@ public class MemberServiceTest {
     @BeforeEach
     public void BeforeEach() {
         memberRepository = new MemoryMemberRepository();
-        memberService = new MemberService();
+        memberService = new MemberService(memberRepository);
     }
 
     @AfterEach
