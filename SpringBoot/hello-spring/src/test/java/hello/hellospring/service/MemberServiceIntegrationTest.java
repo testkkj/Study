@@ -27,7 +27,7 @@ public class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
-    void testFindMembers() {
+    void 회원가입() {
         // given
         Member member = new Member();
         member.setName("hello");
@@ -42,7 +42,7 @@ public class MemberServiceIntegrationTest {
     }
 
     @Test
-    void testFindOne() {
+    void 중복_회원_예외() {
         // given
         Member member1 = new Member();
         member1.setName("spring");
