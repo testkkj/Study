@@ -4,13 +4,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
 
 @Aspect
-@ComponentScan
+@Component
 public class TimeTraceAop {
 
-    @Around("execution(* hello.hellospring..*(..)) && !target(hello.hellospring.SpringConfig)")
-    //@Around("execution(* hello.hellospring..*(..))")
+    //@Around("execution(* hello.hellospring..*(..)) && !target(hello.hellospring.SpringConfig)")
+    @Around("execution(* hello.hellospring..*(..))")
     public Object execute(ProceedingJoinPoint joinPoint) throws Throwable {
 
         Long start = System.currentTimeMillis();
